@@ -1,0 +1,692 @@
+%Preamble
+% noindent
+\documentclass[12pt,a4paper]{article}       % Declares document size
+
+\usepackage[
+  margin=20mm,
+  paperwidth=21cm,
+  paperheight=180cm
+]{geometry}          % Defines margins
+\usepackage[utf8]{inputenc}                 % Defines encription
+\usepackage[magyar]{babel}                  % Defines language
+\usepackage{t1enc}                          % Correctly hyphenates vowels
+
+% \usepackage{tikz}                           % Tikz and PGF for graphics
+% \usepackage{pgfplots}
+
+\usepackage{xfrac}                          % Slanted fractions
+\usepackage{lastpage}                       % Reference lastpage in footer
+\usepackage{amsmath}                        % Math library
+\usepackage{amssymb}                        % Symbols library
+\usepackage{physics}                        % Physics library
+\usepackage{subfiles}                       % Use subfiles
+\usepackage{float}                          % Float
+\usepackage{icomma}                         % Intelligent decimal separator
+\usepackage{tabto}                          % Tab to a specific location in a document
+\usepackage{multicol}                       % User nultiple cols
+\usepackage{hyperref}                       % Mark refs
+\usepackage[                                % More math font
+  cal=rsfso, bb=ams
+]{mathalpha}
+
+\usepackage{fancyhdr}                       % Fancy design for pages
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\setlength{\headheight}{20pt}
+\pagestyle{fancy}
+\cfoot{\thepage\ / \pageref{LastPage}}
+\lhead{Polimertechnika minimumkérdések}
+\rhead{\emph{Készítette:} Sándor Tibor}
+
+% \numberwithin{equation}{section}            % Numbering and indenting
+% \numberwithin{figure}{section}
+% \numberwithin{table}{section}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{.66em}
+
+\usepackage{xparse}                         % Conditional commands
+\usepackage{tcolorbox}                      % Colored boxes
+\tcbuselibrary{breakable, skins, listings, raster}
+\newtcolorbox{cbox}[2]{
+  shadow={0mm}{0mm}{-1.5mm}{fill=yellow!75!red,opacity=0.5},
+  enhanced,
+  colback=red!5!white,
+  colframe=red!75!black,
+  title={#2},
+}
+
+\usepackage{chemfig}
+\usepackage{forest}
+\usepackage{qtree}
+
+\title{Polimertechnika minimumkérdések \\ \large(BMEGEPTBM01) \\ \texttt{v1.1.2}}
+\author{Sándor Tibor}
+
+
+% indent
+
+\begin{document}
+% \begin{center}
+%   \Large \textbf{Polimertechnika minimumkérdések}
+% \end{center}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{tcbitemize}[
+    % sharp corners,
+    % shadow={0mm}{0mm}{-1mm}{fill=yellow!75!red,opacity=0.5},
+    enhanced, raster columns=1, raster row skip=1em, raster equal height=rows,
+    colback=red!20!yellow!5!white, colframe=yellow!25!black, breakable,
+    enhanced jigsaw
+  ]
+
+  \tcbitem[title={\# \thetcbrasternum –
+        Mi a polimer?
+      }]
+  A polimer molekula olyan \textbf{nagyméretű molekula} (makromolekula),
+  amelyet nagyon sok (poli) láncszerűen összekapcsolt \textbf{ismétlődő egység}
+  (mer) alkot. A gyakorlatban ez több száz, általában minimum ezer ismétlődő
+  egység összekapcsolását jelenti, melyek \textbf{kovalens kötéssel}
+  kapcsolódnak egymáshoz.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum –
+        Mi a polimertechnika?
+      }]
+  A polimertechnika (polymer engineering) minden olyan \textbf{műszaki
+    tevékenység}, amelyet polimerekkel végzünk. A polimertechnika körébe
+  tartozik:
+  \begin{multicols}{3}
+    \begin{itemize}
+      \item előállítás,
+      \item anyagtudomány,
+      \item vizsgálat,
+      \item módosítás,
+      \item feldolgozás,
+      \item műszaki feladatok.
+    \end{itemize}
+  \end{multicols}
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a monomer?
+      }]
+  A monomer \textbf{polimerizációra alkalmas kisméretű mulekula}. Kovalens
+  kötésekkel kapcsolódnak össze ismétlődő egységekké.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mit jelent az ismétlődő egység?
+      }]
+  Az ismétlődő egységek, polimerizációra alkalmas kisméretű molekulákból, ún.
+  \textbf{momomerekből} származtatottak és \textbf{kovalens kötésekkel}
+  kapcsolódnak össze.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a kompaund?
+      }]
+  Adott célra előállított \textbf{keverék}, keveréssel állítjuk őket elő.
+  \begin{center}
+    \Tree[.{Keverés}
+        [.{Száraz keverés\\(szilárd)}
+            [.Szakaszos
+                {Buktatott hordó}
+            ]
+            [.Folyamatos
+                {Vándorcsigával ellátott\\kúpos siló}
+            ]
+        ]
+        [.{Nedves keverés\\(folyadék)}
+            [.Szakaszos
+                {Hengerszék}
+                {Belső\\keverő}
+            ]
+            [.Folyamatos
+                {Extrúder}
+                {Statikus\\keverő}
+            ]
+        ]
+    ]
+  \end{center}
+  % \begin{multicols}{2}
+  %   \begin{itemize}
+  %     \item Száraz keverés (szilárd)
+  %           \begin{itemize}
+  %             \item szakaszos
+  %                   \begin{itemize}
+  %                     \item buktatott hordó
+  %                   \end{itemize}
+  %             \item folyamatos
+  %                   \begin{itemize}
+  %                     \item vándorcsigával ellátott kúpos siló
+  %                   \end{itemize}
+  %           \end{itemize}
+  %           \vfill\null\columnbreak
+  %     \item Nedves keverés (folyadék)
+  %           \begin{itemize}
+  %             \item szakaszos
+  %                   \begin{itemize}
+  %                     \item hengerszék
+  %                     \item belső keverő
+  %                   \end{itemize}
+  %             \item folyamatos
+  %                   \begin{itemize}
+  %                     \item extrúzió
+  %                     \item statikus keverő
+  %                   \end{itemize}
+  %           \end{itemize}
+  %   \end{itemize}
+  % \end{multicols}
+
+
+  Lehet továbbá \textbf{disztributív} (komponensek méretcsökkenésével nem járó,
+  eloszlató, extenzív keverés) és \textbf{diszperzív} (az összetartozó
+  komponensek méretcsökkenésével járó, intenzív keverés)
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a polimer blend?
+      }]
+  A blend egy polimer-polimer \textbf{keverék}. Csak \textbf{fizikai} kapcsolat
+  alakul ki, kémiai nem. Az anyagokat melegen összekeverjük, majd lehűtjük. Az
+  anyagoknak kompatibilisnek (összeférhetőnek) kell lenni egymással, hogy blend
+  legyen készíthető. Pl. PC–ABS.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a kopolimer?
+      }]
+  Többféle ismétlődő egységet tartalmazó polimer, pl.: ABS. Típusai:
+
+  \definesubmol\cA{\textcolor{red!50!yellow!80!black}{A}}
+  \definesubmol\cB{\textcolor{yellow!75!black}{B}}
+
+  % noindent
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{l l r}
+      Alternáló             & \chemfig[atom sep=2em]{
+        \phantom{X}-!\cA-!\cB-!\cA-!\cB-!\cA-!\cB-!\cA-\phantom{Y}
+      } &
+      \\
+      Random (statisztikus) & \chemfig[atom sep=2em]{
+        \phantom{X}-!\cA-!\cA-!\cA-!\cB-!\cA-!\cB-!\cB-\phantom{Y}
+      } & RPP, EVA, SBR
+      \\
+      Blokk                 & \chemfig[atom sep=2em]{
+        \phantom{X}-!\cA-!\cA-\dots-!\cA-!\cB-\dots-!\cB-\phantom{Y}
+      } & SB, SBS
+      \\
+      Ojtott                & \chemfig[atom sep=2em]{
+        \phantom{X}-!\cA-!\cA-!\cA
+        (-[::-130]!\cB-[::-50]!\cB-[::+0]\dots)
+        -\dots-!\cA
+        (-[::-50]!\cB-[::+50]!\cB-[::+0]\dots)
+        -!\cA-!\cA-\phantom{Y}
+      } & HiPS, ABS
+    \end{tabular}
+  \end{table}
+  % indent
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a kovalens kötés?
+      }]
+  Polimereknél nagy jelentőségű \textbf{elsőrendű} (kémiai, intermolekuláris)
+  kötés. A kapcsolódó atomok megosztják a vegyértékelektronjaikat.
+  \begin{center}
+    \chemfig[atom sep=2em]{H-H}
+    \hspace{2em}
+    \chemfig[atom sep=2em]{\charge{135=\|,225=\|}{O}=\charge{45=\|,-45=\|}{O}}
+    \hspace{2em}
+    \chemfig[atom sep=2em]{\charge{180=\|}{C}~\charge{0=\|}{O}}
+  \end{center}
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mit jelent a polimerizációs fok?
+      }]
+  A polimerizációs fok (\textbf{DP}, \emph{degree of polymerization}) azt
+  fejezi ki, hogy hány monomerből polimerizáltuk az adott molekulaláncot.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Sorolja fel a tömegműanyagokat és rajzolja fel az ismétlő egységeiket.
+      }]
+  % noindent
+  % \begin{multicols}{3}
+  % PE
+  \begin{figure}[H]
+    \centering
+      \chemfig[
+        atom sep=2em,
+        bond style={line width=1pt,red}
+      ]{\vphantom{X}-[@{op}]C(-[2]H)(-[6]H)-C(-[@{cp}])(-[2]H)(-[6]H)-\vphantom{X}}
+      \polymerdelim[
+        delimiters ={[]},
+        height = 2.5em,
+        depth = 2.5em,
+        indice = n
+      ]{op}{cp}
+    \caption{Polietilén}
+  \end{figure} 
+
+  % PP
+  \begin{figure}[H]
+    \centering
+    \chemfig[
+      atom sep=2em,
+      bond style={line width=1pt,red}
+    ]{
+      \vphantom{X}
+      -[@{op,.25}, 1.25]C(-[::+120]H)(-[::+240]H)
+      -C(-[::+60]H)
+      (-[6]C(-[6]H)(-[::-60]H)(-[::+60]H))
+      -[@{cp,.875},1.5]\vphantom{X}}
+    \polymerdelim[
+      delimiters ={[]},
+      height = 2.5em,
+      depth = 4.5em,
+      indice = n
+    ]{op}{cp}
+    \caption{Polipropilén}
+  \end{figure}
+  
+  % PVC
+  \begin{figure}[H]
+    \centering
+    \chemfig[
+      atom sep=2em,
+      bond style={line width=1pt,red}
+    ]{\vphantom{X}-[@{op}]C(-[2]H)(-[6]H)-C(-[@{cp}])(-[2]H)(-[6]Cl)-\vphantom{X}}
+    \polymerdelim[
+      delimiters ={[]},
+      height = 2.5em,
+      depth = 2.5em,
+      indice = n
+    ]{op}{cp} 
+    \caption{Polivinil-klorid}
+  \end{figure}
+    
+  % PET
+  \begin{figure}[H]
+    \centering
+    \chemfig[
+      atom sep=2em,
+      bond style={line width=1pt,red}
+    ]{
+      \vphantom{X}
+      -[@{op,0.25}, 1.25]C(-[::+120]H)(-[::+240]H)
+      -C(-[::+60]H)(-[::-60]H)
+      -O
+      -[::-60]C(=[::-60]O)
+      -*6([,.75]-=-([,1]-C(=[::-60]O)-[::+60]O(-[@{cp}])-\vphantom{X})=-=)
+    }
+    \polymerdelim[
+      delimiters ={[]},
+      height = 2.5em,
+      depth = 4.5em,
+      indice = n
+    ]{op}{cp}
+    \caption{Polietilén-tereftalát}
+  \end{figure}
+
+  % PS
+  \begin{figure}[H]
+    \centering
+    \chemfig[
+      atom sep=2em,
+      bond style={line width=1pt,red}
+    ]{
+      \vphantom{X}
+      -[@{op,.25}, 1.25]C(-[::+120]H)(-[::+240]H)
+      -C(-[@{cp,.75}, 1.25])(-[::+60]H)(-[6]*6([6,.75]-=-=-=))
+      -\vphantom{X}
+    }
+    \polymerdelim[
+      delimiters ={[]},
+      height = 2.5em,
+      depth = 5.25em,
+      indice = n
+    ]{op}{cp}
+    \caption{Polisztirol}
+  \end{figure}
+  % \end{multicols}
+  % indent
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a fázis (anyagtudomány)?
+      }]
+  A fázis az anyag olyan \textbf{lényegi része}, amelynek kémiai összetétele és
+  fizikai állapota megegyezik (\textbf{egységes}). A \textbf{fázisdomén} egy
+  összefüggő területe az anyagnak.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mit jelent polimerek esetében a szegmens?
+      }]
+  A szegmens a polimermolekula \textbf{termodinamikailag} összefüggő része, a
+  molekulalánc kisebb szakasza. A szegmensek együtt mozognak. A
+  szegmensmozgások (Mikro-Brown mozgások) esetén a molekula egyes részei
+  elmozdulnak, konformációs változások jöhetnek létre. Méretük leggyakrabban
+  néhány ismétlődő egység.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mit jelent az, hogy egy polimer amorf?
+      }]
+  Az amorf  anyagok \textbf{egyetlen, amorf fázisból} állnak. A molekulák
+  tartalmazhatnak elágazásokat, oldalláncokat. A molekulák itt
+  \textbf{rendezetlenül} helyezkednek el a térben, azaz a \textbf{molekulák
+    közötti távolság nem állandó}. Az amorf anyagok lehetnek
+  \textbf{lineárisak} és \textbf{térhálósak} is.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mit jelent az, hogy egy polimer részben kristályos?
+      }]
+  Részben kristályos anyagoknál az a jellemző, hogy a felhasználás
+  hőmérsékletén, szilárd halmazállapotban az \textbf{amorf részek mellett
+    térben rendezett részek is} jelentős mértékben találhatóak bennük. Ezek a
+  polimerek \textbf{lineáris szerkezetűek}. \textbf{Szabályosság, állandó
+    molekulatávolság} figyelhető meg. Mindig van benne amorf rész, nincsen
+  teljesen kristályos polimer.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Soroljon fel 3 részben-kristályos és 3 amorf polimer típust!
+      }]
+  \setlength{\columnsep}{-1cm}
+  \begin{multicols}{2}
+    \begin{itemize}
+      \item Részben kristályos:
+            \begin{itemize}
+              \item PET (Polietilén-tereftalát)
+              \item PE (Polietilén)
+              \item PP (Polipropilén)
+              \item PA (Poliamid)
+              \item PTFE (Teflon)
+            \end{itemize}
+      \item Amorf:
+            \begin{itemize}
+              \item PVC (Polivinil-klorid)
+              \item PS (Polisztirol)
+              \item ABS (Akrilnitril-butadién-sztirol)
+              \item PC (Polikarbonát)
+              \item PMMA (Polimetil-metakrilát)
+            \end{itemize}
+    \end{itemize}
+  \end{multicols}
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a szferolit?
+      }]
+  A szferolit mikroszkóp alatt látható \textbf{szuperkristály}. Gömbszerű
+  szerkezet, nem csak polimerekben figyelhető meg. Az anyagban az
+  \textbf{inhomogenitás} (pl. szennyeződés) környékén indul meg a lamellák
+  (\textbf{krisztallitok}) kialakulása. Kisszögű elágazások mentén lévő
+  lamellacsoportosulásokat \textbf{fibrilláknak} nevezzük. Lehet sünis és kévés
+  szerkezetű.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Hogyan számítható a polimerek húzószilárdsága?
+      }]
+  A húzószilárdság a szakítógörbe \textbf{első lokális maximumánál} ébredő
+  mérnöki feszültség.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Írja fel a Hooke-törvényt (szilárd testekre vonatkozólag)!
+      }]
+  A Hooke-törvény az feszültég és az alakváltozás közötti egyenes arányosságot
+  fejezi ki.
+  \[
+    \sigma = E \cdot \varepsilon
+  \]
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Hogyan határozhatjuk meg egy polimer húzási rugalmassági modulusát?
+      }]
+  A húzási rugalmassági modulus a \textbf{szakítógörbe meredeksége}. A
+  feszültség és az alakváltozás közötti kapcsolatot fejezi ki. Megmutatja, hogy
+  adott terhelésre milyen nyúlással reagál az anyag. Fajtái:
+  % \begin{multicols}{3}
+  \begin{itemize}
+    \item kezdeti rug. mod.
+    \item húr mod.
+    \item érintő mod.
+  \end{itemize}
+  % \end{multicols}
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mit jelent az üveges átmeneti hőmérséklet-tartomány?
+      }]
+  Az üvegesedési átmeneti hőmérséklet tartományában a polimer anyag
+  \textbf{üvegesen amorf} állapotból \textbf{nagyrugalmas amorf} állapotba lép
+  át.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mit jelent az, hogy egy polimer viszkoelasztikus?
+      }]
+  Viszkoelasztikus anyagoknál \textbf{rugalmas} (elasztikus) és
+  \textbf{viszkózus} viselkedés is megfigyelhető. Összetett viselkedésüket
+  ideális tulajdonságok kombinációjaként írjuk le. Az összdeformáció 3
+  komponensből tevődik össze:
+  \begin{itemize}
+    \item $\varepsilon_{pr}$ – \textbf{pillanatnyi rugalmas} komponens
+          \begin{itemize}
+            \item Hooke-törvényt ($\sigma = E \cdot \varepsilon$) követő
+                  ideális rugó.
+            \item Atomtávolságok és vegyértékszögek megváltozása.
+            \item Mechanikailag és termodinamikailag is reverzibilis.
+          \end{itemize}
+    \item $\varepsilon_{m}$ – \textbf{maradó} deformáció
+          \begin{itemize}
+            \item Newton-törvényt ($\sigma = \eta \cdot \dot{\varepsilon}$)
+                  követő ideális viszkózus elem.
+            \item Molekulaláncok egymáshoz képest elcsúsznak.
+            \item Mechanikailag és termodinamikailag is irreverzibilis.
+          \end{itemize}
+    \item $\varepsilon_{kr}$ – \textbf{késleltetett rugalmas} komponens
+          \begin{itemize}
+            \item Kelvin-Voigt elem (rugó és viszkózus elem páthuzamos
+                  kapcsolása).
+            \item Molekulaláncok ki- él visszagöngyölődése.
+            \item Mechanikailag reverzibilis, de termodinamikailag nem.
+            \item Hiszterézishurok jellemzi.
+          \end{itemize}
+  \end{itemize}
+  A viselkedés a \textbf{Burgers-féle négyparaméteres modellel} írható le.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a kúszás?
+      }]
+  A kúszás (nyúlásrelaxáció) vizsgálat egy \textbf{statikus} vizsgálat, ahol a
+  próbatestre ugrásszerűen egy bizonyos időre \textbf{állandó nagyságú
+    feszülséget} kapcsolunk. Megfigyelhetjük, hogy a próbatest
+  \textbf{alakváltozása} az idő függvényében \textbf{folyamatosan nő}.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a feszültségrelaxáció?
+      }]
+  A feszültségrelaxáció vizsgálat szintén egy \textbf{statikus} vizsgálat,
+  hiszen itt is állandó a gerjesztés. Megfigyelhetjük, hogy \textbf{állandó
+    alakváltozás} fenntartásához \textbf{egyre kisebb húzófeszültségre} van
+  szükség.
+
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a DM(T)A?
+      }]
+  A DMA (dinamikus mechanikai analízis) egy \textbf{fárasztóvizsgálat}. Egy $4
+    \cross 10 \cross 60 \, \mathrm{mm}$ méretű hasábot \textbf{ciklikusan}
+  (szinuszosan) \textbf{terheljük} és a feszültséget, alakváltozást az idő
+  függvényében vizsgáljuk. A próbatestet csavaró vagy nyíró igénybevétellel is
+  terhelhetjük. Az alakváltozás és a feszültség között fáziskésés figyelhető
+  meg:
+  \begin{align*}
+    \varepsilon(t) & = \varepsilon_0 \cdot \sin(\omega t)
+    \\
+    \sigma(t)      & = \sigma_0 \cdot \sin(\omega t + \delta)
+    \\
+                   & = \sigma_0 \left(
+    \cos \delta \sin(\omega t) +
+    \sin \delta \cos(\omega t)
+    \right)
+    \\
+                   & = \sigma'_0 \sin(\omega t) + \sigma''_0 \cos(\omega t)
+  \end{align*}
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Definiálja a viszkozitást!
+      }]
+  A viszkozitás egy közeg ellenállásának mértéke a csúsztatófeszültség okozta
+  alakváltozással szemben. Egy közeg \textbf{belső súrlódásaként} is
+  felfogható. Nagyobb viszkozitású anyag sűrűbben folyik.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Írja fel a Newton törvényt folyadékok esetére!
+      }]
+  A Newton-törvényt követő ideálisan viszkózus folyadékkal töltött dugattyús
+  henger:
+  \[
+    \sigma = \eta \cdot \dot{\varepsilon}
+  \]
+  Newton-törvény folyadékokra:
+  \[
+    \tau = \eta \cdot \dot{\gamma}
+  \]
+  $\tan{\gamma} = \gamma$ közelítéssel élve:
+  \[
+    \dot{\gamma}
+    = \lim_{\Delta t \rightarrow 0} \frac{\Delta \gamma}{\Delta t}
+    = \lim_{\Delta t \rightarrow 0} \frac{\Delta l}{\Delta t \cdot d}
+    = \frac{v}{d}
+  \]
+  Ahol $v$ a felső lap sebessége, $\dot{\gamma}$ a deformáció
+  sebessége/nyírósebesség. (?sebességgradiensnek is szokás nevezni?)
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi az MFI?
+      }]
+  Az MFI (Melt flow index) a \textbf{folyóképesség} gyakorlati jellemzésére
+  használt \textbf{szabványos folyási mutatószám}, megadja azt a grammokban
+  kifejezett anyagmennyiséget, amely a vizsgálati és anyagszabványban előírt
+  hőmérséklet és nyomás mellett a szabványos mérőkészülék kifolyónyílásán
+  10 perc alatt kifolyik.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a hengerszék?
+      }]
+  A hengerszék eljárás \textbf{nagy viszkozitású} anyagokat és adalékanyagokat
+  kever. \textbf{Szakaszos üzemű, nyitott} eljárás. \textbf{Két} azonos
+  átmérőjű, temperált \textbf{fémhenger} különböző sebességgel egymással
+  szemben forog. Az anyag az érdesebb, gyorsabban forgó, melegebb hengerre
+  tapad. \textbf{Szakállképződés} jellemző, amely az anyag feltorlódását
+  jelenti. A frikció a két henger szögsebességének hányadosa ($f = \omega_1 /
+    \omega_2 \approx 1,1 \dots 1,4$). Nagy emberi tényező: veszélyes,
+  \textbf{kézi etetés}, tapasztalat szükséges. Jó homogenitású keverék hozható
+  létre. Egyszerű karbantartás, tisztitás, hőmérséklet pontosan beállíthtó.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a kalander?
+      }]
+  A kalanderezés a \textbf{hengerszék} tenchnológiájából alakult ki. 3, 4, 5
+  hengerből álló \textbf{hengersor}, mellyel \textbf{folytonos gyártás}
+  valósítható meg. Az eljárással \textbf{fóliákat}, vékony \textbf{lemezeket}
+  gyárthatunk. A hengerek felülete tükrös, edzett, nitridált. A hengerek
+  temperáltak, egymással ellentétes irányba forognak. Különböző elrendezések
+  valósíthatóak meg (\textit{I, L, F, Z, \dots}).
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi az extrúzió?
+      }]
+  Tipikusan \textbf{termoplasztikus} (hőre lágyuló) polimert az extrúder
+  \textbf{képlékeny állapotba} hozza, majd a viszkózusan folyós ömledéket
+  \textbf{komprimálja} (nyomás alá helyezi), \textbf{homogenizálja}, adott,
+  változatlan keresztmetszetű, nyitott szerszámon \textbf{keresztülsajtolja},
+  méretállandóságot követőberendezésekkel biztosítva \textbf{lehűti}, és így
+  \textbf{állandó keresztmetszetű} polimer terméket gyárt tetszőleges
+  hosszúságban, \textbf{folytonos üzemben}. A kijövő termék kiterjedése tehát
+  az egyik dimenzióban végtelen, ami lehet cső, síklap, profilos hasáb, fólia,
+  stb. Az alapanyag por vagy granulátum, adalékanyagokkal.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a fröccsöntés?
+      }]
+  Polimer késztermékek előállítására alkalmas szakaszos (\textbf{ciklikus})
+  \textbf{eljárás}. Alapelve, hogy a \textbf{termoplasztikus} (hőre lágyuló)
+  polimer alapanyagot olvadáspontja fölé, vagyis \textit{viszkózusan folyós}
+  \textbf{ömledékállapotba} hozzuk, majd ezt \textbf{nagy sebességgel} és
+  \textbf{nyomással}, szűk beömlőnyíláson át egy zárt, \textbf{temperált}
+  (szabályozott hőmérsékletű) \textbf{szerszámba} juttatjuk. \textbf{
+    Tetszőlegesen bonyolult}, 3D-s, nagy méretpontosságú alkatrész
+  alakítható ki gyakolatilag \textbf{hulladékmentesen}.
+
+
+
+  \tcbitem[title={\# \thetcbrasternum{} –
+        Mi a kompozit?
+      }]
+  A kompozit \textbf{többfázisú} (alkotóiban fázishatárokkal elválasztott),
+  több alkotóból álló \textbf{összetett} szerkezeti anyag, amely
+  \textbf{erősítőanyagból} (szálerősítő) és \textbf{befoglaló} mátrixanyagból
+  áll, és az jellemzi, hogy a \textbf{nagy szilárdságú} és \textbf{nagy
+    rugalmassági modolusú} (szálas) \textbf{erősítőanyag} és a rendszerint
+  \textbf{kisebb szilárdságú mátrix} között kitűnő első vagy másodrendű kötések
+  általi \textbf{adhéziós} kapcsolat van, amely a deformáció magas szintjén is
+  \textbf{tartósan fennmarad}. A kompozitok kialakítása abból a felismerésből
+  jött létre, hogy az alkatrészek terhelésének iránya meghatározható, ebbe az
+  irányba nagyobb szilárdságra van szükség.
+
+\end{tcbitemize}
+
+\end{document}
