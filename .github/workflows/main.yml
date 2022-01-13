@@ -18,7 +18,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Polimer-minimumn-${{ steps.get_date.outputs.date }}
+          tag_name: Polimer-minimum-${{ steps.get_date.outputs.date }}
           draft: false
           prerelease: false
 
